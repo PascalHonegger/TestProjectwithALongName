@@ -10,10 +10,6 @@ namespace Save_the_Humans
     /// <summary>
     ///     Interaction logic for MainWindow.xaml
     /// 
-    ///     Commits have Swag!
-    /// 
-    /// 
-    ///     Swag by Pascal
     ///     Created by Pascal Honegger, Alain Keller and Seraphin Rihm as a test Project.
     /// </summary>
     public partial class MainWindow
