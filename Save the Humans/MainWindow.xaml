@@ -74,7 +74,6 @@
             <TextBlock TextWrapping="Wrap" Text="Avoid These" FontFamily="Showcard Gothic" FontSize="18.667"/>
             <ContentControl Content="ContentControl" Template="{DynamicResource EnemyTemplate}"/>
         </StackPanel>
-        <Ellipse x:Name="TestEllipse" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="100" Stroke="Black" VerticalAlignment="Top" Width="100" Grid.Column="1" Margin="544,318,0,0"/>
 
     </Grid>
 
