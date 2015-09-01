@@ -12,6 +12,8 @@ namespace Save_the_Humans
     /// 
     ///     Commits have Swag!
     /// 
+    /// Wag by Aladinasfdasdf
+    /// 
     ///     Created by Pascal Honegger, Alain Keller and Seraphin Rihm as a test Project.
     /// </summary>
     public partial class MainWindow
