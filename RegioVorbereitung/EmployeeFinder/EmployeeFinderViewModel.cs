@@ -69,7 +69,7 @@ namespace RegioVorbereitung.EmployeeFinder
 		private void ApplyFilter()
 		{
 			AvailableEmployees.Clear();
-			foreach (var employee in _allEmployees.Where(e => _selectedDepartments.Select(d => d.Model).Contains(e.Department) && (string.IsNullOrEmpty(SearchText) || e.Name.Contains(SearchText))))
+			foreach (var employee in _allEmployees.Where(e => _selectedDepartments.Select(d => d.Model).Contains(e.Department) && (string.IsNullOrEmpty(SearchText) || e.Name.ToLower().Contains(SearchText.ToLower()))))
 			{
 				AvailableEmployees.Add(employee);
 			}

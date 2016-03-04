@@ -31,7 +31,7 @@
 			</ItemsControl.ItemTemplate>
 		</ItemsControl>
 		<Border Grid.Column="1" Margin="5,5,4.6,5" Padding="5" BorderThickness="1" BorderBrush="Black" CornerRadius="10" Grid.Row="0" >
-			<TextBox Text="{Binding SearchText}" BorderThickness="0"/>
+			<TextBox Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}" BorderThickness="0"/>
 		</Border>
 
 		<ListView x:Name="EmployeeSelector" SelectionMode="Single" Grid.Row="1" Grid.Column="1" ItemsSource="{Binding AvailableEmployees}">

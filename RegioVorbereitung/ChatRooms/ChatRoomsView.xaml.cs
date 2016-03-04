@@ -1,5 +1,6 @@
 ﻿using RegioVorbereitung.EmployeeFinder;
 using System.Windows;
+using RegioVorbereitung.Chat;
 
 namespace RegioVorbereitung.ChatRooms
 {
@@ -21,7 +22,7 @@ namespace RegioVorbereitung.ChatRooms
 
 		private void EmployeeFinder_Click(object sender, RoutedEventArgs e)
 		{
-			var employeeFinderViewModel = new EmployeeFinderViewModel((user) => { throw new ResourceReferenceKeyNotFoundException(); });
+			var employeeFinderViewModel = new EmployeeFinderViewModel(user => { new ChatView(user).Show(); });
 
 			new EmployeeFinderView(employeeFinderViewModel).ShowDialog();
 		}

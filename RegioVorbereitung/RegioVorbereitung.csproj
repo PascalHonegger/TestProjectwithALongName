@@ -70,6 +70,10 @@
       <DependentUpon>ChatRoomsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="ChatRooms\ChatRoomsViewModel.cs" />
+    <Compile Include="Chat\ChatView.xaml.cs">
+      <DependentUpon>ChatView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Chat\ChatViewModel.cs" />
     <Compile Include="EmployeeFinder\DepartmentViewModel.cs" />
     <Compile Include="EmployeeFinder\EmployeeFinderView.xaml.cs">
       <DependentUpon>EmployeeFinderView.xaml</DependentUpon>
@@ -108,13 +112,15 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Chat\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Page Include="ChatRooms\ChatRoomsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Chat\ChatView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="EmployeeFinder\EmployeeFinderView.xaml">
       <SubType>Designer</SubType>

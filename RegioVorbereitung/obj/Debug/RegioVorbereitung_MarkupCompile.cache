@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\A610222\Source\Repos\RegioExample\RegioVorbereitung\RegioVorbereitung\obj\Debug\
+C:\Users\A610222\Source\Repos\TestProjectwithALongName\RegioVorbereitung\obj\Debug\
 RegioVorbereitung
 none
 false
 DEBUG;TRACE
-C:\Users\A610222\Source\Repos\RegioExample\RegioVorbereitung\RegioVorbereitung\App.xaml
-31479434060
+C:\Users\A610222\Source\Repos\TestProjectwithALongName\RegioVorbereitung\App.xaml
+4983759373
 
-14712787506
+16512602507
 14-1998998555
-ChatRooms\ChatRoomsView.xaml;EmployeeFinder\EmployeeFinderView.xaml;Login\LoginView.xaml;
+ChatRooms\ChatRoomsView.xaml;Chat\ChatView.xaml;EmployeeFinder\EmployeeFinderView.xaml;Login\LoginView.xaml;
 
 False
 
