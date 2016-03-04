@@ -1,3 +1,0 @@
-# TestProjectwithALongName
-Test
-Important news!
