@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using RegioVorbereitung.Properties;
 using System.Collections.Generic;
+using System;
 
 namespace RegioVorbereitung.Model
 {
@@ -8,23 +9,7 @@ namespace RegioVorbereitung.Model
 	{
 		public static IEnumerable<EmployeeModel> LoadAll()
 		{
-			return new List<EmployeeModel>
-			{
-				new EmployeeModel
-				{
-					Id = 1,
-					Name = "Hans Meier",
-					Department = DepartmentModel.Load(1)
-				},
-				new EmployeeModel
-				{
-					Id = 2,
-					Name = "Wurstus Hansus",
-					Department = DepartmentModel.Load(2)
-				}
-			};
-
-			/*using (var connection = new MySqlConnection(Settings.Default.ConnectionString))
+			using (var connection = new MySqlConnection(Settings.Default.ConnectionString))
 			{
 				connection.Open();
 				var query = "SELECT Id, Name, Department_Id FROM Employee";
@@ -34,16 +19,20 @@ namespace RegioVorbereitung.Model
 				{
 					if (!reader.IsDBNull(0))
 					{
-						var employee = new EmployeeModel
+						var employeeId = reader.GetInt32("Id");
+						if (!Equals(employeeId, EmployeeModel.CurrentEmployee.Id))
 						{
-							Id = reader.GetInt32("Id"),
-							Name = reader.GetString("Name"),
-							Department = DepartmentModel.Load(reader.GetInt32("Department_Id"))
-						};
-						yield return employee;
+							var employee = new EmployeeModel
+							{
+								Id = employeeId,
+								Name = reader.GetString("Name"),
+								Department = DepartmentModel.Load(reader.GetInt32("Department_Id"))
+							};
+							yield return employee;
+						}
 					}
 				}
-			}*/
+			}
 		}
 
 		public static EmployeeModel CurrentEmployee { get; set; }
@@ -51,5 +40,47 @@ namespace RegioVorbereitung.Model
 		public int Id { get; set; }
 		public string Name { get; set; }
 		public DepartmentModel Department { get; set; }
+
+		public static EmployeeModel Load(int id)
+		{
+			using (var connection = new MySqlConnection(Settings.Default.ConnectionString))
+			{
+				connection.Open();
+				var query = "SELECT Name, Department_Id FROM Employee WHERE Id = @id";
+				MySqlCommand cmd = new MySqlCommand(query, connection);
+				cmd.Parameters.Add("@id", MySqlDbType.Int32);
+				cmd.Prepare();
+
+				cmd.Parameters["@id"].Value = id;
+
+				MySqlDataReader reader = cmd.ExecuteReader();
+				if (reader.Read())
+				{
+					var employee = new EmployeeModel
+					{
+						Id = id,
+						Name = reader.GetString("Name"),
+						Department = DepartmentModel.Load(reader.GetInt32("Department_Id"))
+					};
+					return employee;
+				}
+				else
+				{
+					return null;
+				}
+			}
+		}
+
+		public override bool Equals(object obj)
+		{
+			var other = obj as EmployeeModel;
+
+			return other != null && Equals(other.Id, Id);
+		}
+
+		public override int GetHashCode()
+		{
+			return Id.GetHashCode();
+		}
 	}
 }

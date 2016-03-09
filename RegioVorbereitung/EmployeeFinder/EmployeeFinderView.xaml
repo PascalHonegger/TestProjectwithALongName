@@ -34,10 +34,15 @@
 			<TextBox Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}" BorderThickness="0"/>
 		</Border>
 
-		<ListView x:Name="EmployeeSelector" SelectionMode="Single" Grid.Row="1" Grid.Column="1" ItemsSource="{Binding AvailableEmployees}">
+		<ListView x:Name="EmployeeSelector" SelectionMode="Single" Grid.Row="1" Grid.Column="1" ItemsSource="{Binding AvailableEmployees}" SelectedItem="{Binding SelectedEmployee}">
+			<ListView.ItemContainerStyle>
+				<Style TargetType="{x:Type ListViewItem}">
+					<EventSetter Event="MouseDoubleClick" Handler="ListView_MouseDoubleClick" />
+				</Style>
+			</ListView.ItemContainerStyle>
 			<ListView.ItemTemplate>
 				<DataTemplate>
-					<ListViewItem MouseDoubleClick="ListView_MouseDoubleClick" HorizontalAlignment="Stretch" Content="{Binding Name}"/>
+					<TextBlock HorizontalAlignment="Stretch" Text="{Binding Name}"/>
 				</DataTemplate>
 			</ListView.ItemTemplate>
 		</ListView>

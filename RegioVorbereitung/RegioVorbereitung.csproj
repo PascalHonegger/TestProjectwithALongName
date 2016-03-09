@@ -83,6 +83,7 @@
       <DependentUpon>LoginView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Login\LoginViewModel.cs" />
+    <Compile Include="Model\ChatMessageModel.cs" />
     <Compile Include="Model\ChatRoomModel.cs" />
     <Compile Include="Model\DepartmentModel.cs" />
     <Compile Include="Model\EmployeeModel.cs" />

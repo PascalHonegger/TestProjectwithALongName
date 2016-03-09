@@ -38,7 +38,7 @@ namespace RegioVorbereitung.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("server=127.0.0.1;uid=RegioUser;pwd=RegioUser!2016;database=regiodatabase;")]
+        [global::System.Configuration.DefaultSettingValueAttribute("server=localhost;uid=RegioUser;password=Passwort_123;database=RegioDatabase")]
         public string ConnectionString {
             get {
                 return ((string)(this["ConnectionString"]));

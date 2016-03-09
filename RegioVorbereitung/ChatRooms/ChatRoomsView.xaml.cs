@@ -20,11 +20,22 @@ namespace RegioVorbereitung.ChatRooms
 			Close();
 		}
 
-		private void EmployeeFinder_Click(object sender, RoutedEventArgs e)
+		public void EmployeeFinder_Click(object sender, RoutedEventArgs e)
 		{
-			var employeeFinderViewModel = new EmployeeFinderViewModel(user => { new ChatView(user).Show(); });
+			var employeeFinderViewModel = new EmployeeFinderViewModel(user => { new ChatView(new ChatViewModel(user)).Show(); });
 
 			new EmployeeFinderView(employeeFinderViewModel).ShowDialog();
+		}
+
+
+		public void Chat_DoubleClick(object sender, object e)
+		{
+			var viewModel = (DataContext as ChatRoomsViewModel);
+
+			if (viewModel?.SelectedChatRoom != null)
+			{
+				viewModel.OpenSelectedChat();
+			}
 		}
 	}
 }

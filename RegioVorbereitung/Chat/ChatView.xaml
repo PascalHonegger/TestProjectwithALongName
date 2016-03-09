@@ -5,6 +5,37 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 		xmlns:local="clr-namespace:RegioVorbereitung.Chat"
         mc:Ignorable="d"
-        Title="ChitChat" Height="300" Width="300" d:DataContext="{d:DesignData local:ChatViewModel}" >
-	<TextBlock>I'm here!</TextBlock>
+        Title="{Binding Chat.Topic}" Height="300" Width="300" d:DataContext="{d:DesignInstance local:ChatViewModel}" >
+	<Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition />
+			<ColumnDefinition />
+			<ColumnDefinition />
+		</Grid.ColumnDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="3*"/>
+			<RowDefinition />
+		</Grid.RowDefinitions>
+		<DockPanel Grid.Column="0" Grid.Row="0" LastChildFill="True">
+			<Button Content="Leave Chatroom" DockPanel.Dock="Bottom"/>
+			<Button Content="Change Topic" DockPanel.Dock="Bottom"/>
+			<Button Content="Add User" DockPanel.Dock="Bottom"/>
+			<ListView ItemsSource="{Binding Members}" DockPanel.Dock="Top">
+				<ListView.ItemTemplate>
+					<DataTemplate>
+						<TextBlock Text="{Binding Name}"/>
+					</DataTemplate>
+				</ListView.ItemTemplate>
+			</ListView>
+		</DockPanel>
+		<ListView ItemsSource="{Binding Messages}" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="0">
+			<ListView.ItemTemplate>
+				<DataTemplate>
+					<TextBlock Text="{Binding FormattedString}"/>
+				</DataTemplate>
+			</ListView.ItemTemplate>
+		</ListView>
+		<TextBox Text="{Binding MessageText, UpdateSourceTrigger=PropertyChanged}" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1"/>
+		<Button Content="Send" Grid.Column="2" Grid.Row="1" Click="Button_Click" IsDefault="True"/>
+	</Grid>
 </Window>

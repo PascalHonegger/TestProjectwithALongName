@@ -15,7 +15,7 @@ namespace RegioVorbereitung.EmployeeFinder
 		private Action<EmployeeModel> _callback;
 
 		public ObservableCollection<DepartmentViewModel> Departments { get; } = new ObservableCollection<DepartmentViewModel>(DepartmentModel.LoadAll().ToList().Select(m => new DepartmentViewModel(m)));
-		private List<DepartmentViewModel> _selectedDepartments => Departments.Where(d => d.IsSelected).ToList();
+		private List<DepartmentModel> _selectedDepartments => Departments.Where(d => d.IsSelected).ToList().Select(d => d.Model).ToList();
 		public EmployeeModel SelectedEmployee { get; set; }
 		public ObservableCollection<EmployeeModel> AvailableEmployees { get; } = new ObservableCollection<EmployeeModel>();
 		private IEnumerable<EmployeeModel> _allEmployees;
@@ -69,7 +69,7 @@ namespace RegioVorbereitung.EmployeeFinder
 		private void ApplyFilter()
 		{
 			AvailableEmployees.Clear();
-			foreach (var employee in _allEmployees.Where(e => _selectedDepartments.Select(d => d.Model).Contains(e.Department) && (string.IsNullOrEmpty(SearchText) || e.Name.ToLower().Contains(SearchText.ToLower()))))
+			foreach (var employee in _allEmployees.Where(e => _selectedDepartments.Contains(e.Department) && (string.IsNullOrEmpty(SearchText) || e.Name.ToLower().Contains(SearchText.ToLower()))))
 			{
 				AvailableEmployees.Add(employee);
 			}

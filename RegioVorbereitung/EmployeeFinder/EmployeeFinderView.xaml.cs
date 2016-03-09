@@ -17,12 +17,8 @@ namespace RegioVorbereitung.EmployeeFinder
 
 		private void ListView_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
 		{
-			if (EmployeeSelector.SelectedItem != null)
-			{
-				ViewModel.InvokeCallback();
-				Close();
-			}
-			
+			ViewModel.InvokeCallback();
+			Close();
 		}
 	}
 }

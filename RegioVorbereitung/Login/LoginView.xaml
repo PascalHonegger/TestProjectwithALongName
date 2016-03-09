@@ -18,7 +18,7 @@
 			<ColumnDefinition Width="*"/>
 		</Grid.ColumnDefinitions>
 		<Label VerticalContentAlignment="Center" Grid.Row="0" Grid.Column="0"  Content="Username" Target="{Binding ElementName=Username}" Margin="5, 20, 5, 20"/>
-		<TextBox Grid.Row="0" Grid.Column="1" x:Name="Username" Margin="5, 10, 5, 10" Text="{Binding Username}"/>
+		<TextBox Grid.Row="0" Grid.Column="1" x:Name="Username" Margin="5, 10, 5, 10" Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}"/>
 		<Label VerticalContentAlignment="Center" Grid.Row="1" Grid.Column="0"  Content="Password" Target="{Binding ElementName=Password}" Margin="5, 20, 5, 20"/>
 			<PasswordBox Grid.Row="1" Grid.Column="1" x:Name="Password" Margin="5, 10, 5, 10"/>
 		<CheckBox Grid.Row="2" Grid.Column="1" Content="Remember me" VerticalAlignment="Center" IsChecked="{Binding SaveLogin}"/>

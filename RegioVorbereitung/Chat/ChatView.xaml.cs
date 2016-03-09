@@ -1,7 +1,4 @@
 ﻿using System.Windows;
-using RegioVorbereitung.ChatRooms;
-using RegioVorbereitung.EmployeeFinder;
-using RegioVorbereitung.Model;
 
 namespace RegioVorbereitung.Chat
 {
@@ -10,10 +7,17 @@ namespace RegioVorbereitung.Chat
 	/// </summary>
 	public partial class ChatView : Window
 	{
-		public ChatView(EmployeeModel employee)
+		public ChatView(ChatViewModel viewModel)
 		{
 			InitializeComponent();
-			DataContext = new ChatViewModel();
+			ViewModel = (DataContext = viewModel) as ChatViewModel;
+		}
+
+		public ChatViewModel ViewModel { get; private set; }
+
+		private void Button_Click(object sender, RoutedEventArgs e)
+		{
+			ViewModel.SendMessage();
 		}
 	}
 }

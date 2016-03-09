@@ -8,9 +8,10 @@
     <Setting Name="ConnectionString" Type="(Connection string)" Scope="Application">
       <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionString&gt;server=127.0.0.1;uid=RegioUser;pwd=RegioUser!2016;database=regiodatabase;&lt;/ConnectionString&gt;
+  &lt;ConnectionString&gt;server=localhost;uid=RegioUser;password=Passwort_123;database=RegioDatabase&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;MySql.Data.MySqlClient&lt;/ProviderName&gt;
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
-      <Value Profile="(Default)">server=127.0.0.1;uid=RegioUser;pwd=RegioUser!2016;database=regiodatabase;</Value>
+      <Value Profile="(Default)">server=localhost;uid=RegioUser;password=Passwort_123;database=RegioDatabase</Value>
     </Setting>
     <Setting Name="SavedPassword" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
