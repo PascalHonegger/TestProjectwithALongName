@@ -17,9 +17,10 @@
 			<RowDefinition />
 		</Grid.RowDefinitions>
 		<DockPanel Grid.Column="0" Grid.Row="0" LastChildFill="True">
-			<Button Content="Leave Chatroom" DockPanel.Dock="Bottom"/>
-			<Button Content="Change Topic" DockPanel.Dock="Bottom"/>
-			<Button Content="Add User" DockPanel.Dock="Bottom"/>
+			<Button Content="Leave Chatroom" DockPanel.Dock="Bottom" Click="Button_Click_3"/>
+			<TextBox Text="{Binding NewTopic, UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Bottom" ToolTip="New Topic"/>
+			<Button Content="Change Topic" DockPanel.Dock="Bottom" Click="Button_Click_1"/>
+			<Button Content="Add User" DockPanel.Dock="Bottom" Click="Button_Click_2"/>
 			<ListView ItemsSource="{Binding Members}" DockPanel.Dock="Top">
 				<ListView.ItemTemplate>
 					<DataTemplate>

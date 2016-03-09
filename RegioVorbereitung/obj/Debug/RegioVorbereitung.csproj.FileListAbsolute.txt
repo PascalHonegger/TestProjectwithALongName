@@ -56,3 +56,4 @@ C:\Users\Pascal\Source\Repos\TestProjectwithALongName\RegioVorbereitung\obj\Debu
 C:\Users\Pascal\Source\Repos\TestProjectwithALongName\RegioVorbereitung\obj\Debug\RegioVorbereitung.g.resources
 C:\Users\Pascal\Source\Repos\TestProjectwithALongName\RegioVorbereitung\obj\Debug\RegioVorbereitung.Properties.Resources.resources
 C:\Users\Pascal\Source\Repos\TestProjectwithALongName\RegioVorbereitung\obj\Debug\RegioVorbereitung.csproj.GenerateResource.Cache
+C:\Users\Pascal\Source\Repos\TestProjectwithALongName\RegioVorbereitung\obj\Debug\RegioVorbereitung.csprojResolveAssemblyReference.cache

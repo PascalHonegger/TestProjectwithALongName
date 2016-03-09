@@ -12,6 +12,8 @@ namespace RegioVorbereitung.Model
 {
 	public class ChatRoomModel : INotifyPropertyChanged
 	{
+		private string _topic;
+
 		public event PropertyChangedEventHandler PropertyChanged;
 
 		private void OnPropertyChanged([CallerMemberName] string property = null)
@@ -130,7 +132,7 @@ namespace RegioVorbereitung.Model
 				{
 					if (!reader.IsDBNull(0))
 					{
-						var message= new ChatMessageModel(reader.GetInt32("Id"), EmployeeModel.Load(reader.GetInt32("Employee_Id")), reader.GetString("Message"), reader.GetDateTime("Date"));
+						var message = new ChatMessageModel(reader.GetInt32("Id"), EmployeeModel.Load(reader.GetInt32("Employee_Id")), reader.GetString("Message"), reader.GetDateTime("Date"));
 
 						if (!Messages.Contains(message))
 						{
@@ -147,7 +149,7 @@ namespace RegioVorbereitung.Model
 					+ "ON Employee.Id = ChatMember.Employee_Id "
 					+ "WHERE Chatroom_id = @chatroom";
 				cmd.Prepare();
-				
+
 				reader = cmd.ExecuteReader();
 				while (reader.Read())
 				{
@@ -177,7 +179,15 @@ namespace RegioVorbereitung.Model
 		}
 
 		public int Id { get; set; }
-		public string Topic { get; set; }
+		public string Topic
+		{
+			get { return _topic; }
+			set
+			{
+				_topic = value;
+				OnPropertyChanged();
+			}
+		}
 		public DateTime LastMessageDate => Messages.Any() ? Messages.Max(m => m.Created) : DateTime.MinValue;
 		public ObservableCollection<EmployeeModel> Members { get; } = new ObservableCollection<EmployeeModel>();
 		public ObservableCollection<ChatMessageModel> Messages { get; } = new ObservableCollection<ChatMessageModel>();
