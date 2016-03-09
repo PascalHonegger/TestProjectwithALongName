@@ -29,9 +29,16 @@ namespace RegioVorbereitung.ChatRooms
 		{
 			var allChats = ChatRoomModel.LoadAll();
 
-			ChatRooms.Clear();
+			var remove = ChatRooms.Except(allChats);
 
-			foreach (var chat in allChats)
+			foreach (var chat in remove.ToList())
+			{
+				ChatRooms.Remove(chat);
+			}
+
+			var add = allChats.Except(ChatRooms);
+
+			foreach (var chat in add.ToList())
 			{
 				ChatRooms.Add(chat);
 			}

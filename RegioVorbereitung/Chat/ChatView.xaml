@@ -32,7 +32,7 @@
 		<ListView ItemsSource="{Binding Messages}" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="0">
 			<ListView.ItemTemplate>
 				<DataTemplate>
-					<TextBlock Text="{Binding FormattedString}"/>
+					<TextBlock TextWrapping="Wrap" Text="{Binding FormattedString}"/>
 				</DataTemplate>
 			</ListView.ItemTemplate>
 		</ListView>

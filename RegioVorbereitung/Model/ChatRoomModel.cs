@@ -196,5 +196,17 @@ namespace RegioVorbereitung.Model
 		{
 			Messages.CollectionChanged += (sender, e) => OnPropertyChanged(nameof(LastMessageDate));
 		}
+
+		public override bool Equals(object obj)
+		{
+			var other = obj as ChatRoomModel;
+
+			return other != null && Equals(other.Id, Id);
+		}
+		
+		public override int GetHashCode()
+		{
+			return Id.GetHashCode();
+		}
 	}
 }
